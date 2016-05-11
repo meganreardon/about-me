@@ -54,13 +54,12 @@ h2 {
 }
 
 section p {
-  color:
   padding-left: 40px;
 }
 
 p.footer-text {
   font-size: 14px;
-  color: #ccccccs;
+  color: #cccccc;
   text-align: center;
 }
 
