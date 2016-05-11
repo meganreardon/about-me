@@ -51,3 +51,24 @@ if (response5 === answer5 || response5 === answer5[0]) {
 } else {
   alert('Gasp! You are so very very incorrect. Pizza 4evr. ' + userName + ' I\'m disappointed.');
 }
+
+//question 6
+var myNumber = 42;
+var userNumber = parseInt(prompt('Please guess a number.'));
+
+for (var i = 0; i < 4; i++) {
+  if (i === 3){
+    alert('ALL ANSWERS ARE INCORRECT');
+    break;
+  } else if (userNumber === myNumber) {
+    alert('Wowsers! You guessed the correct number!');
+    break;
+  } else if (userNumber < myNumber) {
+    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
+  } else if (userNumber > myNumber) {
+    userNumber = parseInt(prompt('So close, try a lower number.'));
+  } else {
+    i--;
+    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
+  }
+}
