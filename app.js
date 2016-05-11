@@ -2,9 +2,6 @@ var userName = prompt('Hi! Thanks for visiting my About Me page! What is your na
 
 alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to ask you some questions about me. Good luck.');
 
-//unneccessary code line below, left in for posterity, at least for the moment
-//console.log('The user\'s name is ' + userName + ' and they have good shoes.');
-
 // question round 1
 var response1 = prompt('Do I have a dog?').toLowerCase();
 var answer1 = 'no';
