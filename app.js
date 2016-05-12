@@ -16,18 +16,21 @@ function question1() {
   }
 }
 question1();
-//
-// //question round 2
-// var response2 = prompt('Do I like four-leaf clovers?').toLowerCase();
-// var answer2 = 'yes';
-//
-// if (response2 === answer2 || response2 === answer2[0]) {
-//   alert('You are correct ' + userName + '! May the luck be with you.');
-//   userGotQRight ++;
-// } else {
-//   alert('Sadly, ' + userName + ' you are wrong. Better luck next time.');
-// }
-//
+
+//question round 2
+var response2 = prompt('Do I like four-leaf clovers?').toLowerCase();
+var answer2 = 'yes';
+
+function question2() {
+  if (response2 === answer2 || response2 === answer2[0]) {
+    alert('You are correct ' + userName + '! May the luck be with you.');
+    userGotQRight ++;
+  } else {
+    alert('Sadly, ' + userName + ' you are wrong. Better luck next time.');
+  }
+}
+question2();
+
 // //question round 3
 // var response3 = prompt('Do I live in San Francisco?').toLowerCase();
 // var answer3 = 'no';
