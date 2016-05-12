@@ -45,17 +45,19 @@ function question3() {
 }
 question3();
 
-// //question round 4
-// var response4 = prompt('Do I like Halloween?').toLowerCase();
-// var answer4 = 'yes';
-//
-// if (response4 === answer4 || response4 === answer4[0]) {
-//   alert(userName + ' you are correct. I LOVE Halloween!');
-//   userGotQRight ++;
-// } else {
-//   alert('You are wrong, ' + userName + '. You must be one of those Christmas-lovers.');
-// }
-//
+//question round 4
+var response4 = prompt('Do I like Halloween?').toLowerCase();
+var answer4 = 'yes';
+function question4() {
+  if (response4 === answer4 || response4 === answer4[0]) {
+    alert(userName + ' you are correct. I LOVE Halloween!');
+    userGotQRight ++;
+  } else {
+    alert('You are wrong, ' + userName + '. You must be one of those Christmas-lovers.');
+  }
+}
+question4();
+
 // //question round 5
 // var response5 = prompt('Do I like pizza?').toLowerCase();
 // var answer5 = 'yes';
