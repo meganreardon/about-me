@@ -58,83 +58,85 @@ function question4() {
 }
 question4();
 
-// //question round 5
-// var response5 = prompt('Do I like pizza?').toLowerCase();
-// var answer5 = 'yes';
-//
-// if (response5 === answer5 || response5 === answer5[0]) {
-//   alert('Duh, of course I like pizza. Want to grab a slice ' + userName + '?');
-//   userGotQRight ++;
-// } else {
-//   alert('Gasp! You are so very very incorrect. Pizza 4evr. ' + userName + ' I\'m disappointed.');
-// }
-//
-// //question 6
-// var myNumber = 42;
-// var userNumber = parseInt(prompt('Please guess a number.'));
-//
-// for (var i = 0; i < 4; i++) {
-//   if (i === 3){
-//     alert('ALL ANSWERS ARE INCORRECT');
-//     break;
-//   } else if (userNumber === myNumber) {
-//     alert('Wowsers! You guessed the correct number!');
-//     userGotQRight ++;
-//     break;
-//   } else if (userNumber < myNumber) {
-//     userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
-//   } else if (userNumber > myNumber) {
-//     userNumber = parseInt(prompt('So close, try a lower number.'));
-//   } else {
-//     i--;
-//     userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
-//   }
-// }
-//
-// //question 7
-// var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
-// var countriesGuessed = prompt('Guess a country that I have visited. Go on. Enter one now:');
-// var gotOneRight = false;
-//
-// for (var i = 0; i < 5; i++) {
-//   for (var j = 0; j < countriesVisited.length; j++) {
-//     //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
-//     if (countriesGuessed === countriesVisited[j]) {
-//       //set to true
-//       gotOneRight = true;
-//       //break
-//       break;
-//     }
-//   }
-//   //get new guess
-//   if (gotOneRight == false) {
-//     countriesGuessed = prompt('Sorry that was incorrect. Try again:');
-//   }
-// }
-//
-// if (gotOneRight) {
-//   //say yay
-//   alert('Congrats! You got that right!');
-//   userGotQRight ++;
-// } else {
-//   //say too bad
-//   alert('Sorry, you did not guess any of the countries.');
-// }
-//
-// //loop to print out the array goes here
-// var listOfCountries = '';
-// var h = 0;
-// while (h < countriesVisited.length) {
-//   listOfCountries += countriesVisited[h] + ', ';
-//   h++;
-// }
-// listOfCountries += 'and the Vatican.'; //note: blatant bandaid since I don't know how to end that string properly
-// alert('Here are all the countries I have visited: ' + listOfCountries + ' They are almost all good beer-drinking countries.');
-//
-// if (userGotQRight === 7) {
-//   alert('Outstanding ' + userName + '! You have a perfect score of ' + userGotQRight + ' right out of 7 questions!');
-// } else if (userGotQRight === 0) {
-//   alert('Oh, ' + userName + ', I am so very disappointed. You got ' + userGotQRight + ' questions right. It\'s like you don\'t know me at all.');
-// } else {
-//   alert('Well, ' + userName + '. You have ' + userGotQRight + ' out of 7 questions correct. That is ok.');
-// }
+//question round 5
+var response5 = prompt('Do I like pizza?').toLowerCase();
+var answer5 = 'yes';
+function question5() {
+  if (response5 === answer5 || response5 === answer5[0]) {
+    alert('Duh, of course I like pizza. Want to grab a slice ' + userName + '?');
+    userGotQRight ++;
+  } else {
+    alert('Gasp! You are so very very incorrect. Pizza 4evr. ' + userName + ' I\'m disappointed.');
+  }
+}
+question5();
+
+//question 6
+var myNumber = 42;
+var userNumber = parseInt(prompt('Please guess a number.'));
+
+for (var i = 0; i < 4; i++) {
+  if (i === 3){
+    alert('ALL ANSWERS ARE INCORRECT');
+    break;
+  } else if (userNumber === myNumber) {
+    alert('Wowsers! You guessed the correct number!');
+    userGotQRight ++;
+    break;
+  } else if (userNumber < myNumber) {
+    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
+  } else if (userNumber > myNumber) {
+    userNumber = parseInt(prompt('So close, try a lower number.'));
+  } else {
+    i--;
+    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
+  }
+}
+
+//question 7
+var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
+var countriesGuessed = prompt('Guess a country that I have visited. Go on. Enter one now:');
+var gotOneRight = false;
+
+for (var i = 0; i < 5; i++) {
+  for (var j = 0; j < countriesVisited.length; j++) {
+    //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
+    if (countriesGuessed === countriesVisited[j]) {
+      //set to true
+      gotOneRight = true;
+      //break
+      break;
+    }
+  }
+  //get new guess
+  if (gotOneRight == false) {
+    countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+  }
+}
+
+if (gotOneRight) {
+  //say yay
+  alert('Congrats! You got that right!');
+  userGotQRight ++;
+} else {
+  //say too bad
+  alert('Sorry, you did not guess any of the countries.');
+}
+
+//loop to print out the array goes here
+var listOfCountries = '';
+var h = 0;
+while (h < countriesVisited.length) {
+  listOfCountries += countriesVisited[h] + ', ';
+  h++;
+}
+listOfCountries += 'and the Vatican.'; //note: blatant bandaid since I don't know how to end that string properly
+alert('Here are all the countries I have visited: ' + listOfCountries + ' They are almost all good beer-drinking countries.');
+
+if (userGotQRight === 7) {
+  alert('Outstanding ' + userName + '! You have a perfect score of ' + userGotQRight + ' right out of 7 questions!');
+} else if (userGotQRight === 0) {
+  alert('Oh, ' + userName + ', I am so very disappointed. You got ' + userGotQRight + ' questions right. It\'s like you don\'t know me at all.');
+} else {
+  alert('Well, ' + userName + '. You have ' + userGotQRight + ' out of 7 questions correct. That is ok.');
+}
