@@ -31,17 +31,20 @@ function question2() {
 }
 question2();
 
-// //question round 3
-// var response3 = prompt('Do I live in San Francisco?').toLowerCase();
-// var answer3 = 'no';
-//
-// if (response3 === answer3 || response3 === answer3[0]) {
-//   alert('Correct, ' + userName + '! I live in Seattle.');
-//   userGotQRight ++;
-// } else {
-//   alert('Oh no ' + userName + ' you are so wrong! I really, really didn\'t like living there.');
-// }
-//
+//question round 3
+var response3 = prompt('Do I live in San Francisco?').toLowerCase();
+var answer3 = 'no';
+
+function question3() {
+  if (response3 === answer3 || response3 === answer3[0]) {
+    alert('Correct, ' + userName + '! I live in Seattle.');
+    userGotQRight ++;
+  } else {
+    alert('Oh no ' + userName + ' you are so wrong! I really, really didn\'t like living there.');
+  }
+}
+question3();
+
 // //question round 4
 // var response4 = prompt('Do I like Halloween?').toLowerCase();
 // var answer4 = 'yes';
