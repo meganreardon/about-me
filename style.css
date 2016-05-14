@@ -17,11 +17,27 @@ body {
 }
 
 header {
-  padding: 0px 0px 20px 0px;
+  border-bottom: 2px solid #999999;
+  padding: 10px 0px;
+  margin-bottom: 10px;
 }
 
 section {
-  padding-bottom: 20px;
+  padding: 10px 0px;
+}
+
+section p {
+  /*this aligns the paragraph text with the text in the lists*/
+  padding-left: 40px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #999999;
 }
 
 a {
@@ -43,18 +59,8 @@ a:visited:hover {
   color: #00b359;
 }
 
-h1 {
-  font-size: 40px;
-  padding: 10px 0px 10px 0px;
-}
-
-h2 {
-  font-size: 20px;
-  color: #999999;
-}
-
-section p {
-  padding-left: 40px;
+footer {
+  border-top: 2px solid #999999;
 }
 
 p.footer-text {
@@ -69,12 +75,4 @@ li {
 
 address {
   font-style: normal;
-}
-
-hr {
-  color: #999999;
-  background-color: #999999;
-  height: 2px;
-  border-width: 0px;
-  border-radius: 1px;
 }
