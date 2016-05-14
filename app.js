@@ -19,7 +19,7 @@ alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to
 // -------------------
 // question round 1
 // -------------------
-if (q1 == true) {
+if (q1) {
   var response1 = prompt('Do I have a dog?').toLowerCase();
   var answer1 = 'no';
 
@@ -37,7 +37,7 @@ if (q1 == true) {
 // -------------------
 //question round 2
 // -------------------
-if (q2){
+if (q2) {
   var response2 = prompt('Do I like four-leaf clovers?').toLowerCase();
   var answer2 = 'yes';
 
@@ -55,7 +55,7 @@ if (q2){
 // -------------------
 //question round 3
 // -------------------
-if (q3){
+if (q3) {
   var response3 = prompt('Do I live in San Francisco?').toLowerCase();
   var answer3 = 'no';
 
@@ -90,7 +90,7 @@ if (q4) {
 // -------------------
 //question round 5
 // -------------------
-if (q5){
+if (q5) {
   var response5 = prompt('Do I like pizza?').toLowerCase();
   var answer5 = 'yes';
   function question5() {
@@ -107,7 +107,7 @@ if (q5){
 // -------------------
 //question 6
 // -------------------
-if (q6){
+if (q6) {
   var myNumber = 42;
   var userNumber = parseInt(prompt('Please guess a number between 1 and 50, you have four tries:'));
 
@@ -159,7 +159,7 @@ if (q7) {
   }
 
   //function to print out list of contries
-  var listOfCountries = '';
+  var listOfCountries = 'Here are all the countries I have visited: ';
   var h = 0;
 
   function listingCountries() {
@@ -175,19 +175,26 @@ if (q7) {
     return listOfCountries;
   }
 
-  //note: Vatican addition below is blatant bandaid since I don't know how to end that string properly
-  alert('Here are all the countries I have visited: ' + listingCountries() + ' They are all good beer-drinking countries.');
+  alert(listingCountries() + ' They are all good beer-drinking countries.');
 }
 
 // -------------------
 //final tally of correct answers
 // -------------------
-if (tally){
+if (tally) {
+
+  function userScoreMsg() {
+    var userScoreMsgString = userName + ' you got ' + userGotQRight + ' out of ' + userBestPossibleScore + ' trivia questions correct.';
+    return userScoreMsgString;
+  }
+
   if (userGotQRight === userBestPossibleScore) {
-    alert('Outstanding ' + userName + '! You have a perfect score of ' + userGotQRight + ' right out of ' + userBestPossibleScore + ' questions! Gold Star!');
+    alert(userScoreMsg() + ' Wow! You did great!');
   } else if (userGotQRight === 0) {
-    alert('Oh, ' + userName + ', I am so very disappointed. You got ' + userGotQRight + ' questions right. It\'s like you don\'t know me at all.');
+    alert(userScoreMsg() + ' I\'m disappointed, it\'s like you don\'t know me at all.');
+  } else if (userGotQRight <= (userBestPossibleScore / 2) + 1) {
+    alert(userScoreMsg() + ' You tried hard but this isn\'t a victory. Here, have a door prize.');
   } else {
-    alert('You have ' + userGotQRight + ' out of ' + userBestPossibleScore + ' questions correct. ' + userName + ' you did OK.');
+    alert(userScoreMsg() + ' Not too bad!');
   }
 }
