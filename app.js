@@ -1,4 +1,4 @@
-// turn on and off questionf for testing purposes
+// turn on and off questions for testing purposes
 var q1 = true;
 var q2 = true;
 var q3 = true;
@@ -6,7 +6,7 @@ var q4 = true;
 var q5 = true;
 var q6 = true;
 var q7 = true;
-var q8 = true;
+var tally = true;
 
 // set up for final # of right answers at end
 var userGotQRight = 0;
@@ -135,48 +135,50 @@ if (q6){
 //question 7
 // -------------------
 
-var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
-var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
-var gotOneRight = false;
+if(q7) {
+  var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
+  var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
+  var gotOneRight = false;
 
-for (var i = 0; i < 5; i++) {
-  for (var j = 0; j < countriesVisited.length; j++) {
-    if (countriesGuessed === countriesVisited[j]) {
-      gotOneRight = true;
-      break;
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < countriesVisited.length; j++) {
+      if (countriesGuessed.toLowerCase() === countriesVisited[j].toLowerCase()) {
+        gotOneRight = true;
+        break;
+      }
+    }
+    if (gotOneRight == false) {
+      countriesGuessed = prompt('Sorry that was incorrect. Try again:');
     }
   }
-  if (gotOneRight == false) {
-    countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+
+  if (gotOneRight) {
+    alert('Congrats! You got that right!');
+    userGotQRight ++;
+  } else {
+    alert('Sorry, you did not guess any of the countries.');
   }
-}
 
-if (gotOneRight) {
-  alert('Congrats! You got that right!');
-  userGotQRight ++;
-} else {
-  alert('Sorry, you did not guess any of the countries.');
-}
+  //function to print out list of contries
+  var listOfCountries = '';
+  var h = 0;
 
-//function to print out list of contries
-var listOfCountries = '';
-var h = 0;
-
-function listingCountries() {
-  while (h < countriesVisited.length) {
-    listOfCountries += countriesVisited[h] + ', ';
-    h++;
+  function listingCountries() {
+    while (h < countriesVisited.length) {
+      listOfCountries += countriesVisited[h] + ', ';
+      h++;
+    }
+    return listOfCountries;
   }
-  return listOfCountries;
-}
 
-//note: Vatican addition below is blatant bandaid since I don't know how to end that string properly
-alert('Here are all the countries I have visited: ' + listingCountries() + 'and the Vatican. They are almost all good beer-drinking countries.');
+  //note: Vatican addition below is blatant bandaid since I don't know how to end that string properly
+  alert('Here are all the countries I have visited: ' + listingCountries() + 'and the Vatican. They are almost all good beer-drinking countries.');
+}
 
 // -------------------
 //final tally of correct answers
 // -------------------
-if (q8){
+if (tally){
   if (userGotQRight === userBestPossibleScore) {
     alert('Outstanding ' + userName + '! You have a perfect score of ' + userGotQRight + ' right out of ' + userBestPossibleScore + ' questions! Gold Star!');
   } else if (userGotQRight === 0) {
