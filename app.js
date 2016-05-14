@@ -90,6 +90,7 @@ for (var i = 0; i < 4; i++) {
   } else {
     i--;
     userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
+    console.log(i);
   }
 }
 
