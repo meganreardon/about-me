@@ -61,6 +61,8 @@ a:visited:hover {
 
 footer {
   border-top: 2px solid #999999;
+  margin-top: 20px;
+  padding-top: 10px;
 }
 
 p.footer-text {
@@ -73,6 +75,11 @@ li {
   padding: 0px 0px 10px 0px;
 }
 
+/*the following two remove default italicization*/
 address {
+  font-style: normal;
+}
+
+cite {
   font-style: normal;
 }
