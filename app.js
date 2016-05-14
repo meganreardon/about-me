@@ -4,8 +4,8 @@ var q2 = false;
 var q3 = false;
 var q4 = false;
 var q5 = false;
-var q6 = true;
-var q7 = false;
+var q6 = false;
+var q7 = true;
 var q8 = false;
 
 // set up for final # of right answers at end
@@ -125,6 +125,7 @@ if (q6){
     } else if (userNumber > myNumber) {
       userNumber = parseInt(prompt('So close, try a lower number.'));
     } else {
+      // if answer is NaN let them know, don't let that count against their amount of guesses
       i--;
       userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
       console.log(i);
@@ -135,46 +136,81 @@ if (q6){
 // -------------------
 //question 7
 // -------------------
-if (q7){
-  var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
-  var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have four guesses. Go on. Enter one now:');
-  var gotOneRight = false;
 
-  for (var i = 0; i < 5; i++) {
+var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
+var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
+//var gotOneRight = false;
+
+for (var i = 0; i < 6; i++) {
+  if (i === 5) {
+    alert('Sorry, you did not guess any of the countries. Tough break ' + userName + '.');
+    break;
+  } else {
     for (var j = 0; j < countriesVisited.length; j++) {
-      //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
+    //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
       if (countriesGuessed === countriesVisited[j]) {
         //set to true
-        gotOneRight = true;
+        //gotOneRight = true;
         //break
+        alert('Congrats ' + userName + '! You got that right!');
         break;
       }
+    // if (countriesGuessed === countriesVisited[j]) {
+    //   gotOneRight = true;
+    //   break;
+    // }
     }
-    //get new guess
-    if (gotOneRight == false) {
-      countriesGuessed = prompt('Sorry that was incorrect. Try again:');
-    }
+  //if (gotOneRight == false) {
   }
-
-  if (gotOneRight) {
-    //say yay
-    alert('Congrats ' + userName + '! You got that right!');
-    userGotQRight ++;
-  } else {
-    //say too bad
-    alert('Sorry, you did not guess any of the countries. Tough break ' + userName);
-  }
-
-  //loop to print out the array for question 7
-  var listOfCountries = '';
-  var h = 0;
-  while (h < countriesVisited.length) {
-    listOfCountries += countriesVisited[h] + ', ';
-    h++;
-  }
-  listOfCountries += 'and the Vatican.'; //note: blatant bandaid since I don't know how to end that string properly
-  alert('Here are all the countries I have visited: ' + listOfCountries + ' They are almost all good beer-drinking countries.');
+  countriesGuessed = prompt('Sorry that was incorrect. Try again:');
 }
+
+/* SAVED BROKEN CODE Here
+for (var i = 0; i < 6; i++) {
+  if (i === 5) {
+    alert('Sorry, you did not guess any of the countries. Tough break ' + userName);
+    break;
+  } else {
+    for (var j = 0; j < countriesVisited.length; j++) {
+      if ((countriesGuessed === 5) && (gotoneRight === false)) {
+        //tough break message
+        //alert('Sorry, you did not guess any of the countries. Tough break ' + userName);
+        //break;
+        //break
+      } else {
+        //congrats message
+        alert('Congrats ' + userName + '! You got one right!');
+        break;
+        //break
+      }
+    // if (countriesGuessed === countriesVisited[j]) {
+    //   gotOneRight = true;
+    //   break;
+    // }
+    }
+  }
+  if (gotOneRight == false) {
+    countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+  }
+}
+*/
+
+// if (gotOneRight) {
+//   alert('Congrats ' + userName + '! You got that right!');
+//   userGotQRight ++;
+// } else {
+//   alert('Sorry, you did not guess any of the countries. Tough break ' + userName);
+// }
+
+//loop to print out the array for question 7
+var listOfCountries = '';
+var h = 0;
+while (h < countriesVisited.length) {
+  listOfCountries += countriesVisited[h] + ', ';
+  h++;
+}
+listOfCountries += 'and the Vatican.'; //note: blatant bandaid since I don't know how to end that string properly
+alert('Here are all the countries I have visited: ' + listOfCountries + ' They are almost all good beer-drinking countries.');
 
 // -------------------
 //final tally of correct answers
