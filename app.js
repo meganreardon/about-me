@@ -139,31 +139,84 @@ if (q6){
 
 var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
 var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
-//var gotOneRight = false;
+var gotOneRight = false;
 
 for (var i = 0; i < 6; i++) {
+  for (var j = 0; j < countriesVisited.length; j++) {
+    //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
+    if (i = 5) {
+      alert('You did not guess any of the countries, sorry ' + userName + '!');
+      break;
+    } else if (countriesGuessed === countriesVisited[j]) {
+      //set to true
+      alert('Congrats! You got that right!');
+      gotOneRight = true;
+      //break
+      break;
+    }
+  }
+  //get new guess
+  if (gotOneRight == false) {
+    console.log(gotOneRight + ' i is at ' + i);
+    if (i < 4) {
+      countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+    } else {
+      countriesGuessed = prompt('You have one last guess remaining:');
+    }
+  }
+}
+
+if (gotOneRight) {
+  //say yay
+  //alert('Congrats! You got that right!');
+  alert('you should not be able to get to this message');
+  userGotQRight ++;
+} else {
+  //say too bad
+  alert('Sorry, you did not guess any of the countries.');
+}
+
+/* SO BROKEN
+for (var i = 0; i < 6; i++) {
+  console.log('top of loop, i is ' + i);
   if (i === 5) {
     alert('Sorry, you did not guess any of the countries. Tough break ' + userName + '.');
+    console.log('user DID NOT GUESS, about to break');
     break;
   } else {
     for (var j = 0; j < countriesVisited.length; j++) {
+      console.log('top of countries loop, j is ' + j );
     //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
       if (countriesGuessed === countriesVisited[j]) {
         //set to true
         //gotOneRight = true;
         //break
         alert('Congrats ' + userName + '! You got that right!');
+        gotOneRight = true;
+        console.log('user got one RIGHT, about to break');
         break;
       }
     // if (countriesGuessed === countriesVisited[j]) {
     //   gotOneRight = true;
     //   break;
     // }
-    }
   //if (gotOneRight == false) {
   }
-  countriesGuessed = prompt('Sorry that was incorrect. Try again:');
-}
+  if (gotOneRight === false) {
+    if (countriesGuessed < 5) {
+      countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+    } else {
+      countriesGuessed = prompt('That was wrong, but you have one last try:');
+    }
+  }
+*/
+
+//   if ((gotOneRight = false)&&(countriesGuessed < 5)) {
+//     countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+//   } else {
+//     countriesGuessed = prompt('That was wrong, but you have one last try:');
+//   }
+// }
 
 /* SAVED BROKEN CODE Here
 for (var i = 0; i < 6; i++) {
