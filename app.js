@@ -134,8 +134,7 @@ if (q6){
 // -------------------
 //question 7
 // -------------------
-
-if(q7) {
+if (q7) {
   var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
   var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
   var gotOneRight = false;
@@ -165,14 +164,19 @@ if(q7) {
 
   function listingCountries() {
     while (h < countriesVisited.length) {
-      listOfCountries += countriesVisited[h] + ', ';
-      h++;
+      if (h === countriesVisited.length - 1) {
+        listOfCountries += 'and ' + countriesVisited[h] + '.';
+        h++;
+      } else {
+        listOfCountries += countriesVisited[h] + ', ';
+        h++;
+      }
     }
     return listOfCountries;
   }
 
   //note: Vatican addition below is blatant bandaid since I don't know how to end that string properly
-  alert('Here are all the countries I have visited: ' + listingCountries() + 'and the Vatican. They are almost all good beer-drinking countries.');
+  alert('Here are all the countries I have visited: ' + listingCountries() + ' They are all good beer-drinking countries.');
 }
 
 // -------------------
