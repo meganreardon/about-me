@@ -1,12 +1,12 @@
 // turn on and off questionf for testing purposes
-var q1 = false;
-var q2 = false;
-var q3 = false;
-var q4 = false;
-var q5 = false;
-var q6 = false;
+var q1 = true;
+var q2 = true;
+var q3 = true;
+var q4 = true;
+var q5 = true;
+var q6 = true;
 var q7 = true;
-var q8 = false;
+var q8 = true;
 
 // set up for final # of right answers at end
 var userGotQRight = 0;
@@ -19,7 +19,6 @@ alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to
 // -------------------
 // question round 1
 // -------------------
-console.log(q1);
 if (q1 == true) {
   var response1 = prompt('Do I have a dog?').toLowerCase();
   var answer1 = 'no';
@@ -128,7 +127,6 @@ if (q6){
       // if answer is NaN let them know, don't let that count against their amount of guesses
       i--;
       userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
-      console.log(i);
     }
   }
 }
@@ -141,129 +139,39 @@ var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Bel
 var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 var gotOneRight = false;
 
-for (var i = 0; i < 6; i++) {
+for (var i = 0; i < 5; i++) {
   for (var j = 0; j < countriesVisited.length; j++) {
-    //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
-    if (i = 5) {
-      alert('You did not guess any of the countries, sorry ' + userName + '!');
-      break;
-    } else if (countriesGuessed === countriesVisited[j]) {
-      //set to true
-      alert('Congrats! You got that right!');
+    if (countriesGuessed === countriesVisited[j]) {
       gotOneRight = true;
-      //break
       break;
-    }
-  }
-  //get new guess
-  if (gotOneRight == false) {
-    console.log(gotOneRight + ' i is at ' + i);
-    if (i < 4) {
-      countriesGuessed = prompt('Sorry that was incorrect. Try again:');
-    } else {
-      countriesGuessed = prompt('You have one last guess remaining:');
-    }
-  }
-}
-
-if (gotOneRight) {
-  //say yay
-  //alert('Congrats! You got that right!');
-  alert('you should not be able to get to this message');
-  userGotQRight ++;
-} else {
-  //say too bad
-  alert('Sorry, you did not guess any of the countries.');
-}
-
-/* SO BROKEN
-for (var i = 0; i < 6; i++) {
-  console.log('top of loop, i is ' + i);
-  if (i === 5) {
-    alert('Sorry, you did not guess any of the countries. Tough break ' + userName + '.');
-    console.log('user DID NOT GUESS, about to break');
-    break;
-  } else {
-    for (var j = 0; j < countriesVisited.length; j++) {
-      console.log('top of countries loop, j is ' + j );
-    //console.log('j is ' + j + ' and array answer is at ' + countriesVisited[j]);
-      if (countriesGuessed === countriesVisited[j]) {
-        //set to true
-        //gotOneRight = true;
-        //break
-        alert('Congrats ' + userName + '! You got that right!');
-        gotOneRight = true;
-        console.log('user got one RIGHT, about to break');
-        break;
-      }
-    // if (countriesGuessed === countriesVisited[j]) {
-    //   gotOneRight = true;
-    //   break;
-    // }
-  //if (gotOneRight == false) {
-  }
-  if (gotOneRight === false) {
-    if (countriesGuessed < 5) {
-      countriesGuessed = prompt('Sorry that was incorrect. Try again:');
-    } else {
-      countriesGuessed = prompt('That was wrong, but you have one last try:');
-    }
-  }
-*/
-
-//   if ((gotOneRight = false)&&(countriesGuessed < 5)) {
-//     countriesGuessed = prompt('Sorry that was incorrect. Try again:');
-//   } else {
-//     countriesGuessed = prompt('That was wrong, but you have one last try:');
-//   }
-// }
-
-/* SAVED BROKEN CODE Here
-for (var i = 0; i < 6; i++) {
-  if (i === 5) {
-    alert('Sorry, you did not guess any of the countries. Tough break ' + userName);
-    break;
-  } else {
-    for (var j = 0; j < countriesVisited.length; j++) {
-      if ((countriesGuessed === 5) && (gotoneRight === false)) {
-        //tough break message
-        //alert('Sorry, you did not guess any of the countries. Tough break ' + userName);
-        //break;
-        //break
-      } else {
-        //congrats message
-        alert('Congrats ' + userName + '! You got one right!');
-        break;
-        //break
-      }
-    // if (countriesGuessed === countriesVisited[j]) {
-    //   gotOneRight = true;
-    //   break;
-    // }
     }
   }
   if (gotOneRight == false) {
     countriesGuessed = prompt('Sorry that was incorrect. Try again:');
   }
 }
-*/
 
-// if (gotOneRight) {
-//   alert('Congrats ' + userName + '! You got that right!');
-//   userGotQRight ++;
-// } else {
-//   alert('Sorry, you did not guess any of the countries. Tough break ' + userName);
-// }
+if (gotOneRight) {
+  alert('Congrats! You got that right!');
+  userGotQRight ++;
+} else {
+  alert('Sorry, you did not guess any of the countries.');
+}
 
-//loop to print out the array for question 7
+//function to print out list of contries
 var listOfCountries = '';
 var h = 0;
-while (h < countriesVisited.length) {
-  listOfCountries += countriesVisited[h] + ', ';
-  h++;
+
+function listingCountries() {
+  while (h < countriesVisited.length) {
+    listOfCountries += countriesVisited[h] + ', ';
+    h++;
+  }
+  return listOfCountries;
 }
-listOfCountries += 'and the Vatican.'; //note: blatant bandaid since I don't know how to end that string properly
-alert('Here are all the countries I have visited: ' + listOfCountries + ' They are almost all good beer-drinking countries.');
+
+//note: Vatican addition below is blatant bandaid since I don't know how to end that string properly
+alert('Here are all the countries I have visited: ' + listingCountries() + 'and the Vatican. They are almost all good beer-drinking countries.');
 
 // -------------------
 //final tally of correct answers
