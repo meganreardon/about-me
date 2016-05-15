@@ -1,20 +1,88 @@
 // turn on and off questions for testing purposes
-var q1 = true;
-var q2 = true;
-var q3 = true;
-var q4 = true;
-var q5 = true;
+var q1 = false;
+var q2 = false;
+var q3 = false;
+var q4 = false;
+var q5 = false;
 var q6 = true;
 var q7 = true;
 var tally = true;
 
 // set up for final # of right answers at end
+
 var userGotQRight = 0;
 var userBestPossibleScore = 7;
 
 var userName = prompt('Hi! Thanks for visiting my About Me page! What is your name?');
 
 alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to ask you some questions about me. Good luck.');
+
+// -------------------
+// reworking questions 1-5
+// -------------------
+
+var quizArray = [
+  [
+    'Do I have a dog?',
+    'no',
+    userName + '! You got it right! I am indeed dog-less.',
+    'I\'m so sorry ' + userName + ', you are incorrect. I like dogs but I don\'t have any of my own.'
+  ],
+  [
+    'Do I like four-leaf clovers?',
+    'yes',
+    'You are correct ' + userName + '! May the luck be with you.',
+    'Sadly, ' + userName + ' you are wrong. Better luck next time.'
+  ],
+  [
+    'Do I live in San Francisco?',
+    'no',
+    'Correct, ' + userName + '! I live in Seattle.',
+    'Oh no ' + userName + ' you are so wrong! I really, really didn\'t like living there.'
+  ],
+  [
+    'Do I like Halloween?',
+    'yes',
+    userName + ' you are correct. I LOVE Halloween!',
+    'You are wrong, ' + userName + '. You must be one of those Christmas-lovers.'
+  ],
+  [
+    'Do I like pizza?',
+    'yes',
+    'Duh, of course I like pizza. Want to grab a slice ' + userName + '?',
+    'Gasp! You are so very very incorrect. Pizza 4evr. ' + userName + ' I\'m disappointed.'
+  ]
+];
+
+console.log(quizArray.length);
+
+for (var i = 0; i < quizArray.length; i++) {
+  //ask the question
+  console.log('i is currently: ' + i );
+  var userAnswer = prompt(quizArray[i][0]);
+  var correctAnswer = quizArray[i][1];
+  //console.log(userAnswer);
+  userAnswer = userAnswer.toLowerCase();
+  correctAnswer = correctAnswer.toLowerCase();
+  console.log(userAnswer);
+  console.log(correctAnswer);
+  // console.log(correctAnswer.toLowerCase());
+  if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
+    //return correct answer message
+    alert(quizArray[i][2]);
+    //add to userGotQRight
+    userGotQRight ++;
+  } else {
+    //return incorrect answer message
+    alert(quizArray[i][3]);
+  }
+}
+
+//  [[[q], [a], [right], [wrong]]
+//   [[q], [a], [right], [wrong]]
+//   [[q], [a], [right], [wrong]]
+//   [[q], [a], [right], [wrong]]
+//   [[q], [a], [right], [wrong]]]
 
 // -------------------
 // question round 1
