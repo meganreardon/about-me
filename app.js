@@ -2,7 +2,7 @@
 var userGotQRight = 0;
 var userBestPossibleScore = 7;
 
-//greeting and start of quiz
+// greeting and start of quiz
 var userName = prompt('Hi! Thanks for visiting my About Me page! What is your name?');
 alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to ask you some questions about me. Good luck.');
 
@@ -43,6 +43,8 @@ var quizArray = [
   ]
 ];
 
+// line below is on/off for testing REMOVE IT
+// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < quizArray.length; i++) {
   var userAnswer = prompt(quizArray[i][0]);
   var correctAnswer = quizArray[i][1];
@@ -57,15 +59,17 @@ for (var i = 0; i < quizArray.length; i++) {
 }
 
 // -------------------
-//question 6
+// question 6 - guess the number
 // -------------------
 
 var myNumber = Math.floor((Math.random() * 10) + 1);
 var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 10, you have four tries to guess what it is. Good luck:'));
 
+// the line below is on/off for testing REMOVE IT
+// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < 4; i++) {
   if (i === 3){
-    alert('ALL ANSWERS ARE WRONG');
+    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + i + '.');
     break;
   } else if (userNumber === myNumber) {
     alert('Wowsers! You guessed the correct number!');
@@ -83,13 +87,15 @@ for (var i = 0; i < 4; i++) {
 }
 
 // -------------------
-//question 7
+// question 7 - countries
 // -------------------
 
 var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
 var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 var gotOneRight = false;
 
+// the line below is on/off for testing REMOVE IT
+// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < 5; i++) {
   for (var j = 0; j < countriesVisited.length; j++) {
     if (countriesGuessed.toLowerCase() === countriesVisited[j].toLowerCase()) {
@@ -109,7 +115,7 @@ if (gotOneRight) {
   alert('Sorry, you did not guess any of the countries.');
 }
 
-//function to print out list of contries
+// function to print out list of contries
 var listOfCountries = '';
 var h = 0;
 
@@ -129,7 +135,7 @@ function listingCountries() {
 alert('Here are all the countries I have visited: ' + listingCountries() + ' They are all good beer-drinking countries.');
 
 // -------------------
-//final tally of correct answers
+// final tally of correct answers
 // -------------------
 
 function userScoreMsg() {
