@@ -1,4 +1,4 @@
-// this is the set up for final # of correct answers at end
+// set up for final # of correct answers at end
 var userGotQRight = 0;
 var userBestPossibleScore = 7;
 
@@ -43,8 +43,6 @@ var quizArray = [
   ]
 ];
 
-// line below is on/off for testing REMOVE IT
-// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < quizArray.length; i++) {
   var userAnswer = prompt(quizArray[i][0]);
   var correctAnswer = quizArray[i][1];
@@ -65,11 +63,7 @@ for (var i = 0; i < quizArray.length; i++) {
 var myNumber = Math.floor((Math.random() * 10) + 1);
 var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 10, you have four tries to guess what it is. Good luck:'));
 
-// the line below is on/off for testing REMOVE IT
-// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < 4; i++) {
-  console.log('secret number is: ' + myNumber);
-  console.log('guess is currently: ' + userNumber);
   if (i === 3){
     alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
     break;
@@ -96,8 +90,6 @@ var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Bel
 var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 var gotOneRight = false;
 
-// the line below is on/off for testing REMOVE IT
-// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < 5; i++) {
   for (var j = 0; j < countriesVisited.length; j++) {
     if (countriesGuessed.toLowerCase() === countriesVisited[j].toLowerCase()) {
@@ -146,7 +138,7 @@ function userScoreMsg() {
 }
 
 if (userGotQRight === userBestPossibleScore) {
-  alert(userScoreMsg() + ' Wow! You did great!');
+  alert(userScoreMsg() + ' Wow! You did great!\n\n* * * GOLD STAR * * *');
 } else if (userGotQRight === 0) {
   alert(userScoreMsg() + ' I\'m disappointed, it\'s like you don\'t know me at all.');
 } else if (userGotQRight <= Math.floor(userBestPossibleScore / 2)) {
