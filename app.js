@@ -1,3 +1,8 @@
+var q15 = false;
+var q6 = false;
+var q7 = false;
+var tally = false;
+
 // this is the set up for final # of right answers at end
 var userGotQRight = 0;
 var userBestPossibleScore = 7;
@@ -9,7 +14,7 @@ alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to
 // -------------------
 // questions 1-5 reworked into multidimensional array and loop
 // -------------------
-
+if (q15) {
 var quizArray = [
   [
     'Do I have a dog?',
@@ -55,13 +60,14 @@ for (var i = 0; i < quizArray.length; i++) {
     alert(quizArray[i][3]);
   }
 }
-
+}
 // -------------------
 //question 6
 // -------------------
 
-var myNumber = 42;
-var userNumber = parseInt(prompt('Please guess a number between 1 and 50, you have four tries:'));
+var myNumber = Math.floor((Math.random() * 10) + 1);
+
+var userNumber = parseInt(prompt('Please guess a number between 1 and 10, you have four tries. Good luck:'));
 
 for (var i = 0; i < 4; i++) {
   if (i === 3){
@@ -85,7 +91,7 @@ for (var i = 0; i < 4; i++) {
 // -------------------
 //question 7
 // -------------------
-
+if (q7) {
 var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
 var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 var gotOneRight = false;
@@ -127,17 +133,15 @@ function listingCountries() {
 }
 
 alert(listingCountries() + ' They are all good beer-drinking countries.');
-
+}
 // -------------------
 //final tally of correct answers
 // -------------------
-
+if (tally) {
 function userScoreMsg() {
   var userScoreMsgString = userName + ' you got ' + userGotQRight + ' out of ' + userBestPossibleScore + ' trivia questions correct.';
   return userScoreMsgString;
 }
-
-console.log(Math.floor(userBestPossibleScore / 2));
 
 if (userGotQRight === userBestPossibleScore) {
   alert(userScoreMsg() + ' Wow! You did great!');
@@ -147,4 +151,5 @@ if (userGotQRight === userBestPossibleScore) {
   alert(userScoreMsg() + ' You tried hard but this isn\'t a victory. Here, have a door prize.');
 } else {
   alert(userScoreMsg() + ' Not too bad!');
+}
 }
