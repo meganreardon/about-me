@@ -4,7 +4,7 @@ var userBestPossibleScore = 7;
 
 // greeting and start of quiz
 var userName = prompt('Hi! Thanks for visiting my About Me page! What is your name?');
-alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to ask you some questions about me. Good luck.');
+alert('Nice to meet you ' + userName + ', you\'re shoes are great.\n\nI\'m going to ask you five questions about me. Good luck.');
 
 // -------------------
 // questions 1-5 reworked into multidimensional array and loop
@@ -12,31 +12,31 @@ alert('Nice to meet you ' + userName + ', you\'re shoes are great. I\'m going to
 
 var quizArray = [
   [
-    'Do I have a dog?',
+    'Question #1: Do I have a dog?',
     'no',
     userName + '! You got it right! I am indeed dog-less.',
     'I\'m so sorry ' + userName + ', you are incorrect. I like dogs but I don\'t have any of my own.'
   ],
   [
-    'Do I like four-leaf clovers?',
+    'Question #2: Do I like four-leaf clovers?',
     'yes',
     'You are correct ' + userName + '! May the luck be with you.',
     'Sadly, ' + userName + ' you are wrong. Better luck next time.'
   ],
   [
-    'Do I live in San Francisco?',
+    'Question #3: Do I live in San Francisco?',
     'no',
     'Correct, ' + userName + '! I live in Seattle.',
     'Oh no ' + userName + ' you are so wrong! I really, really didn\'t like living there.'
   ],
   [
-    'Do I like Halloween?',
+    'Question #4: Do I like Halloween?',
     'yes',
     userName + ' you are correct. I LOVE Halloween!',
     'You are wrong, ' + userName + '. You must be one of those Christmas-lovers.'
   ],
   [
-    'Do I like pizza?',
+    'Question #5: Do I like pizza?',
     'yes',
     'Duh, of course I like pizza. Want to grab a slice ' + userName + '?',
     'Gasp! You are so very very incorrect. Pizza 4evr. ' + userName + ' I\'m disappointed.'
@@ -68,11 +68,13 @@ var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 1
 // the line below is on/off for testing REMOVE IT
 // for (var i = 0; i < 0; i++) {
 for (var i = 0; i < 4; i++) {
+  console.log('secret number is: ' + myNumber);
+  console.log('guess is currently: ' + userNumber);
   if (i === 3){
-    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + i + '.');
+    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
     break;
   } else if (userNumber === myNumber) {
-    alert('Wowsers! You guessed the correct number!');
+    alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
     userGotQRight ++;
     break;
   } else if (userNumber < myNumber) {
@@ -109,7 +111,7 @@ for (var i = 0; i < 5; i++) {
 }
 
 if (gotOneRight) {
-  alert('Congrats! You got that right!');
+  alert('Congrats! ' + countriesVisited[j] + ' is one of the places I\'ve traveled to.');
   userGotQRight ++;
 } else {
   alert('Sorry, you did not guess any of the countries.');
