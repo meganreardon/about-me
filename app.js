@@ -43,7 +43,7 @@ var quizArray = [
   ]
 ];
 
-//this variable will bring responses up into the next question prompt
+//this variable will bring responses up into the next question prompt in the loop below
 var quizAnswerUp = '';
 
 for (var i = 0; i < quizArray.length; i++) {
@@ -80,7 +80,7 @@ for (var i = 0; i < 4; i++) {
     i--;
     userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
   } else if (i === 3){
-    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
+    alert('ALL GUESSES ARE WRONG\n\nThe secret number was ' + myNumber + '.');
     break;
   } else if (userNumber === myNumber) {
     alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
@@ -92,46 +92,6 @@ for (var i = 0; i < 4; i++) {
     userNumber = parseInt(prompt('So close, try a lower number.'));
   }
 }
-
-/*
-  if (i === 3){
-    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
-    break;
-  } else if (userNumber === myNumber) {
-    alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
-    userGotQRight ++;
-    break;
-  } else if (userNumber < myNumber) {
-    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
-  } else if (userNumber > myNumber) {
-    userNumber = parseInt(prompt('So close, try a lower number.'));
-  } else {
-    // if answer is NaN let them know, don't let that count against their amount of guesses
-    i--;
-    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
-  }
-}
-*/
-/* COPIED ORIG RANDOM NUMBER CODE
-for (var i = 0; i < 4; i++) {
-  if (i === 3){
-    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
-    break;
-  } else if (userNumber === myNumber) {
-    alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
-    userGotQRight ++;
-    break;
-  } else if (userNumber < myNumber) {
-    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
-  } else if (userNumber > myNumber) {
-    userNumber = parseInt(prompt('So close, try a lower number.'));
-  } else {
-    // if answer is NaN let them know, don't let that count against their amount of guesses
-    i--;
-    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
-  }
-}
-*/
 
 // -------------------
 // question 7 - countries
