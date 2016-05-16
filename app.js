@@ -43,7 +43,9 @@ var quizArray = [
   ]
 ];
 
-for (var i = 0; i < quizArray.length; i++) {
+// line below is on/off for testing REMOVE IT
+for (var i = 0; i < 0; i++) {
+// for (var i = 0; i < quizArray.length; i++) {
   var userAnswer = prompt(quizArray[i][0]);
   var correctAnswer = quizArray[i][1];
   userAnswer = userAnswer.toLowerCase();
@@ -57,13 +59,46 @@ for (var i = 0; i < quizArray.length; i++) {
 }
 
 // -------------------
+// function to announce that user has X number of guesses left, used in question 6 and 7
+// -------------------
+
+//not to self make sure # is a universal variable
+
+// -------------------
 // question 6 - guess the number
 // -------------------
 
+var j = 0;
+var guessedTheNumber = false;
 var myNumber = Math.floor((Math.random() * 10) + 1);
 var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 10, you have four tries to guess what it is. Good luck:'));
 
-for (var i = 0; i < 4; i++) {
+/* TEMPORARILY WALLING OFF MY ATTEMPT AT A WHILE LOOP FOR Q6
+while ((j < 3) && (guessedTheNumber === false)) {
+  if (userNumber === myNumber) {
+    //alert Congrats
+    //userGotQRight++;
+    //break;
+    alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
+    userGotQRight ++;
+    break;
+  } else if (userNumber < myNumber) {
+    //alert try higher number
+    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
+    j++;
+  } else if (userNumber > myNumber) {
+    //alert try lower number
+    userNumber = parseInt(prompt('So close, try a lower number.'));
+    j++;
+  }
+  //alert ALL GUESSES ARE WRONG
+  alert('ALL GUESSES ARE WRONG\n\nThe secret number was ' + myNumber + '.');
+}
+*/
+
+// the line below is on/off for testing REMOVE IT
+for (var i = 0; i < 0; i++) {
+// for (var i = 0; i < 4; i++) {
   if (i === 3){
     alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
     break;
@@ -90,6 +125,8 @@ var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Bel
 var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 var gotOneRight = false;
 
+// the line below is on/off for testing REMOVE IT
+// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < 5; i++) {
   for (var j = 0; j < countriesVisited.length; j++) {
     if (countriesGuessed.toLowerCase() === countriesVisited[j].toLowerCase()) {
@@ -111,8 +148,21 @@ if (gotOneRight) {
 
 // function to print out list of contries
 var listOfCountries = '';
-var h = 0;
 
+function listingCountries() {
+  for (var h = 0; h < countriesVisited.length; h++) {
+    if (h < countriesVisited.length - 1) {
+      listOfCountries += countriesVisited[h] + ', ';
+      console.log('h is ' + h + ' and string is ' + listOfCountries);
+    } else {
+      listOfCountries += 'and ' + countriesVisited[h] + '.';
+      console.log('h is ' + h + ' and string is ' + listOfCountries);
+      return listOfCountries;
+    }
+  }
+}
+
+/* TEMPORARY WALL OF WHILE LOOP
 function listingCountries() {
   while (h < countriesVisited.length) {
     if (h === countriesVisited.length - 1) {
@@ -125,6 +175,7 @@ function listingCountries() {
   }
   return listOfCountries;
 }
+*/
 
 alert('Here are all the countries I have visited: ' + listingCountries() + ' They are all good beer-drinking countries.');
 
