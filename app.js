@@ -43,16 +43,26 @@ var quizArray = [
   ]
 ];
 
+//this variable will bring responses up into the next question prompt in the loop below
+var quizAnswerUp = '';
+
 for (var i = 0; i < quizArray.length; i++) {
-  var userAnswer = prompt(quizArray[i][0]);
+  var userAnswer = prompt(quizAnswerUp + '\n\n' + quizArray[i][0]);
   var correctAnswer = quizArray[i][1];
   userAnswer = userAnswer.toLowerCase();
   correctAnswer = correctAnswer.toLowerCase();
-  if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
-    alert(quizArray[i][2]);
+  if (i === quizArray.length - 1) {
+    //the last right/wrong response
+    if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
+      alert(quizArray[i][2]);
+    } else {
+      alert(quizArray[i][3]);
+    }
+  } else if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
+    quizAnswerUp = quizArray[i][2];
     userGotQRight ++;
   } else {
-    alert(quizArray[i][3]);
+    quizAnswerUp = quizArray[i][3];
   }
 }
 
@@ -60,12 +70,17 @@ for (var i = 0; i < quizArray.length; i++) {
 // question 6 - guess the number
 // -------------------
 
+var j = 0;
+var guessedTheNumber = false;
 var myNumber = Math.floor((Math.random() * 10) + 1);
 var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 10, you have four tries to guess what it is. Good luck:'));
 
 for (var i = 0; i < 4; i++) {
-  if (i === 3){
-    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
+  if (isNaN(userNumber)) {
+    i--;
+    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
+  } else if (i === 3){
+    alert('ALL GUESSES ARE WRONG\n\nThe secret number was ' + myNumber + '.');
     break;
   } else if (userNumber === myNumber) {
     alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
@@ -75,10 +90,6 @@ for (var i = 0; i < 4; i++) {
     userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
   } else if (userNumber > myNumber) {
     userNumber = parseInt(prompt('So close, try a lower number.'));
-  } else {
-    // if answer is NaN let them know, don't let that count against their amount of guesses
-    i--;
-    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
   }
 }
 
@@ -87,8 +98,24 @@ for (var i = 0; i < 4; i++) {
 // -------------------
 
 var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
-var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 var gotOneRight = false;
+
+// function to print out list of contries at the end
+var listOfCountries = 'Here are all the countries I have visited: ';
+
+function listingCountries() {
+  for (var h = 0; h < countriesVisited.length; h++) {
+    if (h < countriesVisited.length - 1) {
+      listOfCountries += countriesVisited[h] + ', ';
+    } else {
+      listOfCountries += 'and ' + countriesVisited[h] + '. They are all good beer-drinking countries.';
+      return listOfCountries;
+    }
+  }
+}
+
+// starting the question
+var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Enter one now:');
 
 for (var i = 0; i < 5; i++) {
   for (var j = 0; j < countriesVisited.length; j++) {
@@ -98,35 +125,17 @@ for (var i = 0; i < 5; i++) {
     }
   }
   if (gotOneRight == false) {
-    countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+    countriesGuessed = prompt('Sorry, nope.\n\nTry again:');
   }
 }
 
+// finish question 7
 if (gotOneRight) {
-  alert('Congrats! ' + countriesVisited[j] + ' is one of the places I\'ve traveled to.');
+  alert('Congrats! ' + countriesVisited[j] + ' is one of the places I\'ve traveled to.\n\n' + listingCountries());
   userGotQRight ++;
 } else {
-  alert('Sorry, you did not guess any of the countries.');
+  alert('Sorry, you did not guess any of the countries.\n\n' + listingCountries());
 }
-
-// function to print out list of contries
-var listOfCountries = '';
-var h = 0;
-
-function listingCountries() {
-  while (h < countriesVisited.length) {
-    if (h === countriesVisited.length - 1) {
-      listOfCountries += 'and ' + countriesVisited[h] + '.';
-      h++;
-    } else {
-      listOfCountries += countriesVisited[h] + ', ';
-      h++;
-    }
-  }
-  return listOfCountries;
-}
-
-alert('Here are all the countries I have visited: ' + listingCountries() + ' They are all good beer-drinking countries.');
 
 // -------------------
 // final tally of correct answers
