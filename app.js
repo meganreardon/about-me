@@ -43,6 +43,36 @@ var quizArray = [
   ]
 ];
 
+//this variable will bring responses up into the next question prompt
+var quizAnswerUp = '';
+
+// line below is on/off for testing REMOVE IT
+// for (var i = 0; i < 0; i++) {
+for (var i = 0; i < quizArray.length; i++) {
+  var userAnswer = prompt(quizAnswerUp + '\n\n' + quizArray[i][0]);
+  var correctAnswer = quizArray[i][1];
+  userAnswer = userAnswer.toLowerCase();
+  correctAnswer = correctAnswer.toLowerCase();
+  if (i === quizArray.length - 1) {
+    //the last right/wrong response
+    if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
+      //#5 correct
+      alert(quizArray[i][2]);
+    } else {
+      //#5 wrong
+      alert(quizArray[i][3]);
+    }
+  } else if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
+    // alert(quizArray[i][2]);
+    quizAnswerUp = quizArray[i][2];
+    userGotQRight ++;
+  } else {
+    // alert(quizArray[i][3]);
+    quizAnswerUp = quizArray[i][3];
+  }
+}
+
+/* SAVED ORIG QUIZ LOOP
 // line below is on/off for testing REMOVE IT
 for (var i = 0; i < 0; i++) {
 // for (var i = 0; i < quizArray.length; i++) {
@@ -57,12 +87,7 @@ for (var i = 0; i < 0; i++) {
     alert(quizArray[i][3]);
   }
 }
-
-// -------------------
-// function to announce that user has X number of guesses left, used in question 6 and 7
-// -------------------
-
-//not to self make sure # is a universal variable
+*/
 
 // -------------------
 // question 6 - guess the number
@@ -72,29 +97,6 @@ var j = 0;
 var guessedTheNumber = false;
 var myNumber = Math.floor((Math.random() * 10) + 1);
 var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 10, you have four tries to guess what it is. Good luck:'));
-
-/* TEMPORARILY WALLING OFF MY ATTEMPT AT A WHILE LOOP FOR Q6
-while ((j < 3) && (guessedTheNumber === false)) {
-  if (userNumber === myNumber) {
-    //alert Congrats
-    //userGotQRight++;
-    //break;
-    alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
-    userGotQRight ++;
-    break;
-  } else if (userNumber < myNumber) {
-    //alert try higher number
-    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
-    j++;
-  } else if (userNumber > myNumber) {
-    //alert try lower number
-    userNumber = parseInt(prompt('So close, try a lower number.'));
-    j++;
-  }
-  //alert ALL GUESSES ARE WRONG
-  alert('ALL GUESSES ARE WRONG\n\nThe secret number was ' + myNumber + '.');
-}
-*/
 
 // the line below is on/off for testing REMOVE IT
 for (var i = 0; i < 0; i++) {
@@ -125,7 +127,7 @@ for (var i = 0; i < 0; i++) {
 var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
 var gotOneRight = false;
 
-// function to print out list of contries
+// function to print out list of contries at the end
 var listOfCountries = 'Here are all the countries I have visited: ';
 
 function listingCountries() {
@@ -142,6 +144,29 @@ function listingCountries() {
 // starting the question
 var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 
+// the line below is on/off for testing REMOVE IT
+for (var i = 0; i < 0; i++) {
+// for (var i = 0; i < 5; i++) {
+  for (var j = 0; j < countriesVisited.length; j++) {
+    if (countriesGuessed.toLowerCase() === countriesVisited[j].toLowerCase()) {
+      gotOneRight = true;
+      break;
+    }
+  }
+  if (gotOneRight == false) {
+    countriesGuessed = prompt('Sorry, nope.\n\nTry again:');
+  }
+}
+
+// finish question 7
+if (gotOneRight) {
+  alert('Congrats! ' + countriesVisited[j] + ' is one of the places I\'ve traveled to.\n\n' + listingCountries());
+  userGotQRight ++;
+} else {
+  alert('Sorry, you did not guess any of the countries.\n\n' + listingCountries());
+}
+
+/* SAVED ORIGINAL COUNTRIES LOOP
 // the line below is on/off for testing REMOVE IT
 // for (var i = 0; i < 0; i++) {
 for (var i = 0; i < 5; i++) {
@@ -163,6 +188,7 @@ if (gotOneRight) {
 } else {
   alert('Sorry, you did not guess any of the countries.\n\n' + listingCountries());
 }
+*/
 
 // -------------------
 // final tally of correct answers
