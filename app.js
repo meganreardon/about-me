@@ -152,7 +152,7 @@ for (var i = 0; i < 5; i++) {
     }
   }
   if (gotOneRight == false) {
-    countriesGuessed = prompt('Sorry that was incorrect. You have ' + (j - 1) + 'tries left.\n\nTry again:');
+    countriesGuessed = prompt('Sorry that was incorrect.\n\nTry again:');
   }
 }
 
