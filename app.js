@@ -46,8 +46,6 @@ var quizArray = [
 //this variable will bring responses up into the next question prompt
 var quizAnswerUp = '';
 
-// line below is on/off for testing REMOVE IT
-// for (var i = 0; i < 0; i++) {
 for (var i = 0; i < quizArray.length; i++) {
   var userAnswer = prompt(quizAnswerUp + '\n\n' + quizArray[i][0]);
   var correctAnswer = quizArray[i][1];
@@ -56,38 +54,17 @@ for (var i = 0; i < quizArray.length; i++) {
   if (i === quizArray.length - 1) {
     //the last right/wrong response
     if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
-      //#5 correct
       alert(quizArray[i][2]);
     } else {
-      //#5 wrong
       alert(quizArray[i][3]);
     }
   } else if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
-    // alert(quizArray[i][2]);
     quizAnswerUp = quizArray[i][2];
     userGotQRight ++;
   } else {
-    // alert(quizArray[i][3]);
     quizAnswerUp = quizArray[i][3];
   }
 }
-
-/* SAVED ORIG QUIZ LOOP
-// line below is on/off for testing REMOVE IT
-for (var i = 0; i < 0; i++) {
-// for (var i = 0; i < quizArray.length; i++) {
-  var userAnswer = prompt(quizArray[i][0]);
-  var correctAnswer = quizArray[i][1];
-  userAnswer = userAnswer.toLowerCase();
-  correctAnswer = correctAnswer.toLowerCase();
-  if ((userAnswer === correctAnswer) || (userAnswer === correctAnswer[0])) {
-    alert(quizArray[i][2]);
-    userGotQRight ++;
-  } else {
-    alert(quizArray[i][3]);
-  }
-}
-*/
 
 // -------------------
 // question 6 - guess the number
@@ -98,9 +75,7 @@ var guessedTheNumber = false;
 var myNumber = Math.floor((Math.random() * 10) + 1);
 var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 10, you have four tries to guess what it is. Good luck:'));
 
-// the line below is on/off for testing REMOVE IT
-for (var i = 0; i < 0; i++) {
-// for (var i = 0; i < 4; i++) {
+for (var i = 0; i < 4; i++) {
   if (i === 3){
     alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
     break;
@@ -123,7 +98,6 @@ for (var i = 0; i < 0; i++) {
 // question 7 - countries
 // -------------------
 
-// setting up some data
 var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
 var gotOneRight = false;
 
@@ -142,11 +116,9 @@ function listingCountries() {
 }
 
 // starting the question
-var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
+var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Enter one now:');
 
-// the line below is on/off for testing REMOVE IT
-for (var i = 0; i < 0; i++) {
-// for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 5; i++) {
   for (var j = 0; j < countriesVisited.length; j++) {
     if (countriesGuessed.toLowerCase() === countriesVisited[j].toLowerCase()) {
       gotOneRight = true;
@@ -165,30 +137,6 @@ if (gotOneRight) {
 } else {
   alert('Sorry, you did not guess any of the countries.\n\n' + listingCountries());
 }
-
-/* SAVED ORIGINAL COUNTRIES LOOP
-// the line below is on/off for testing REMOVE IT
-// for (var i = 0; i < 0; i++) {
-for (var i = 0; i < 5; i++) {
-  for (var j = 0; j < countriesVisited.length; j++) {
-    if (countriesGuessed.toLowerCase() === countriesVisited[j].toLowerCase()) {
-      gotOneRight = true;
-      break;
-    }
-  }
-  if (gotOneRight == false) {
-    countriesGuessed = prompt('Sorry that was incorrect.\n\nTry again:');
-  }
-}
-
-// finish question 7
-if (gotOneRight) {
-  alert('Congrats! ' + countriesVisited[j] + ' is one of the places I\'ve traveled to.\n\n' + listingCountries());
-  userGotQRight ++;
-} else {
-  alert('Sorry, you did not guess any of the countries.\n\n' + listingCountries());
-}
-*/
 
 // -------------------
 // final tally of correct answers
