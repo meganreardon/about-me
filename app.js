@@ -121,9 +121,26 @@ for (var i = 0; i < 0; i++) {
 // question 7 - countries
 // -------------------
 
+// setting up some data
 var countriesVisited = ['England', 'Ireland', 'Wales', 'Scotland', 'Italy', 'Belgium', 'Canada'];
-var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 var gotOneRight = false;
+
+// function to print out list of contries
+var listOfCountries = 'Here are all the countries I have visited: ';
+
+function listingCountries() {
+  for (var h = 0; h < countriesVisited.length; h++) {
+    if (h < countriesVisited.length - 1) {
+      listOfCountries += countriesVisited[h] + ', ';
+    } else {
+      listOfCountries += 'and ' + countriesVisited[h] + '. They are all good beer-drinking countries.';
+      return listOfCountries;
+    }
+  }
+}
+
+// starting the question
+var countriesGuessed = prompt('Alright ' + userName + ', guess a country that I have visited, you have six tries. Go on. Enter one now:');
 
 // the line below is on/off for testing REMOVE IT
 // for (var i = 0; i < 0; i++) {
@@ -135,49 +152,17 @@ for (var i = 0; i < 5; i++) {
     }
   }
   if (gotOneRight == false) {
-    countriesGuessed = prompt('Sorry that was incorrect. Try again:');
+    countriesGuessed = prompt('Sorry that was incorrect. You have ' + (j - 1) + 'tries left.\n\nTry again:');
   }
 }
 
+// finish question 7
 if (gotOneRight) {
-  alert('Congrats! ' + countriesVisited[j] + ' is one of the places I\'ve traveled to.');
+  alert('Congrats! ' + countriesVisited[j] + ' is one of the places I\'ve traveled to.\n\n' + listingCountries());
   userGotQRight ++;
 } else {
-  alert('Sorry, you did not guess any of the countries.');
+  alert('Sorry, you did not guess any of the countries.\n\n' + listingCountries());
 }
-
-// function to print out list of contries
-var listOfCountries = '';
-
-function listingCountries() {
-  for (var h = 0; h < countriesVisited.length; h++) {
-    if (h < countriesVisited.length - 1) {
-      listOfCountries += countriesVisited[h] + ', ';
-      console.log('h is ' + h + ' and string is ' + listOfCountries);
-    } else {
-      listOfCountries += 'and ' + countriesVisited[h] + '.';
-      console.log('h is ' + h + ' and string is ' + listOfCountries);
-      return listOfCountries;
-    }
-  }
-}
-
-/* TEMPORARY WALL OF WHILE LOOP
-function listingCountries() {
-  while (h < countriesVisited.length) {
-    if (h === countriesVisited.length - 1) {
-      listOfCountries += 'and ' + countriesVisited[h] + '.';
-      h++;
-    } else {
-      listOfCountries += countriesVisited[h] + ', ';
-      h++;
-    }
-  }
-  return listOfCountries;
-}
-*/
-
-alert('Here are all the countries I have visited: ' + listingCountries() + ' They are all good beer-drinking countries.');
 
 // -------------------
 // final tally of correct answers
