@@ -76,6 +76,24 @@ var myNumber = Math.floor((Math.random() * 10) + 1);
 var userNumber = parseInt(prompt('I\'ve summoned a random number between 1 and 10, you have four tries to guess what it is. Good luck:'));
 
 for (var i = 0; i < 4; i++) {
+  if (isNaN(userNumber)) {
+    i--;
+    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
+  } else if (i === 3){
+    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
+    break;
+  } else if (userNumber === myNumber) {
+    alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
+    userGotQRight ++;
+    break;
+  } else if (userNumber < myNumber) {
+    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
+  } else if (userNumber > myNumber) {
+    userNumber = parseInt(prompt('So close, try a lower number.'));
+  }
+}
+
+/*
   if (i === 3){
     alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
     break;
@@ -93,6 +111,27 @@ for (var i = 0; i < 4; i++) {
     userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
   }
 }
+*/
+/* COPIED ORIG RANDOM NUMBER CODE
+for (var i = 0; i < 4; i++) {
+  if (i === 3){
+    alert('ALL ANSWERS ARE WRONG\n\nThe secret number was ' + myNumber + '.');
+    break;
+  } else if (userNumber === myNumber) {
+    alert('Wowsers! You guessed the secret number, it was indeed ' + myNumber + '!');
+    userGotQRight ++;
+    break;
+  } else if (userNumber < myNumber) {
+    userNumber = parseInt(prompt('Too low, enter something a wee bit higher.'));
+  } else if (userNumber > myNumber) {
+    userNumber = parseInt(prompt('So close, try a lower number.'));
+  } else {
+    // if answer is NaN let them know, don't let that count against their amount of guesses
+    i--;
+    userNumber = parseInt(prompt('That, my dear friend, is not a number! Try again, gimme a number.'));
+  }
+}
+*/
 
 // -------------------
 // question 7 - countries
